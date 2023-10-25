@@ -1,7 +1,7 @@
 /*
 Author: Sreeram Kondapalli
 Date: 10/20/2022
-Description: The graded portion of this assignment will have you processing a code inspired by Francis Bacon’s Cipher.  You will work with command line arguments and file I/O to process English characters into cipher patterns and back into English. The ungraded portion will get you used to working with the Unix/Linux compiler through some exercises and introduce the gdb debugger.
+Description: 
 Usage: <usage syntax>
 */
 //required includes
