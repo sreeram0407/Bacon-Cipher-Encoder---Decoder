@@ -1,20 +1,34 @@
 # Bacon Cipher Encoder & Decoder
 
-## Description
-This C++ project, authored by Sreeram Kondapalli, is inspired by Francis Bacon’s Cipher. It enables encryption and decryption of text files, translating English characters into cipher patterns and vice versa. A command-line interface is provided for ease of operation, accompanied by robust error handling mechanisms.
+A C++ command-line program that converts text files to and from Bacon’s cipher. Letters are represented by five-character patterns of `a` and `b`.
 
-## Features
-- **Encryption (Baconization):** Converts English characters into corresponding Bacon codes.
-- **Decryption (Englishization):** Converts Bacon codes back into English characters.
-- **Command-Line Interface:** Facilitates cipher operations via command-line arguments.
-- **Error Handling:** Manages invalid user inputs, such as incorrect file paths or usage syntax, gracefully.
-- **File I/O:** Handles reading from and writing to files, ensuring data accuracy and user-friendliness.
+## Build and run
 
-## Usage
-
-Execute the application from the command line, specifying the operation, input file, and output file.
-
-### Syntax
+From the repository root, compile with a C++ compiler:
 
 ```bash
-<executable> <input file> <-bc|-e> <output file>
+g++ -std=c++11 main.cpp -o bacon_cipher
+```
+
+Encode a text file, then decode the result:
+
+```bash
+./bacon_cipher input.txt -bc encoded.txt
+./bacon_cipher encoded.txt -e decoded.txt
+```
+
+The argument order is `<input file> <-bc|-e> <output file>`. Supply all three arguments and use different input and output paths.
+
+## Encoding format
+
+- `A`–`Z` and `a`–`z` share the same codes; decoded letters are uppercase.
+- Encoded characters are separated by `|`; spaces use `/`.
+- Unsupported characters encode as `!!!!!` and decode as `#`.
+
+This is an educational implementation of a historical cipher. Input is processed with fixed-size line buffers.
+
+## Files
+
+- [main.cpp](main.cpp): command-line parsing, file processing, and cipher mappings.
+
+**Author:** Sreeram Kondapalli
